@@ -1,4 +1,4 @@
-import Nav from "../componentes/nav"
+import Nav from "../components/nav"
 
 function Apresentacao() {
 
@@ -6,7 +6,7 @@ function Apresentacao() {
     <>
      <div>
         <Nav />
-        <h1>Olá, bem vindo à apresentação!</h1>
+        <h1>Olá, me chamo Matheus Barbosa Nunes!</h1>
      </div>
     </>
   )

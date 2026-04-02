@@ -1,4 +1,4 @@
-import Nav from "../componentes/nav"
+import Nav from "../components/nav"
 
 
 function Cadastro() {
