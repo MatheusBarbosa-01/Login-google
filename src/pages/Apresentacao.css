@@ -1,8 +1,6 @@
 #conteudo{
-  min-height: 95vh; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  font-family: sans-serif;
+    margin-top: 3vh;
+    text-align: center;
+    background-color: white;
+    font-family: sans-serif;
 }

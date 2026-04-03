@@ -7,7 +7,8 @@ function Apresentacao() {
     <>
       <Nav />
      <div id="conteudo">
-        <h1>Olá, me chamo Matheus Barbosa Nunes!</h1>
+        <h1>Apresentação pessoal</h1><br />
+        <p>Conheça um pouco sobre o desenvolvedor responsável por este projeto</p>
      </div>
     </>
   )
