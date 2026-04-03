@@ -1,11 +1,12 @@
 import Nav from "../components/nav"
+import "./Apresentacao.css"
 
 function Apresentacao() {
 
   return (
     <>
-     <div>
-        <Nav />
+      <Nav />
+     <div id="conteudo">
         <h1>Olá, me chamo Matheus Barbosa Nunes!</h1>
      </div>
     </>

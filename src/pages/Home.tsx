@@ -27,29 +27,42 @@ const [user, setUser] = useState<User | null>(null)
 
   return (
     <>
-     <Nav />
-     <h1>Olá, bem vindo à home!</h1><br></br>
-     <p>Para realizar seu login
-        <button>Clique aqui</button>
-     </p>
-     {!user ? (
-        <GoogleLogin onSuccess={login} onError={() => console.error('Login falhou')} />
-      ) : (
-        <div className={styles.userInfo}>
-          <h2>Bem-vindo, {user.name}!</h2>
-          <img
-            src={user.picture}
-            alt="Perfil"
-            className={styles.profilePicture}
-            crossOrigin="anonymous"
-            referrerPolicy="no-referrer"
-          />
-          <p>Email: {user.email}</p>
-          <button onClick={logout} className={styles.logoutButton}>
-            Sair
-          </button>
+      <Nav />
+     <div className={styles.corpo}>
+        <div className={styles.card}>
+          {!user ? (
+            <>
+              <h1 className={styles.titulo}>Seja bem vindo!</h1>
+              
+              <div className={styles.loginSection}>
+                <h3 className={styles.instrucao}>Por favor, faça login com sua conta Google</h3>
+                <div className={styles.googleBtnContainer}>
+                  <GoogleLogin 
+                    onSuccess={login} 
+                    onError={() => console.error('Login falhou')} 
+                    shape="pill"
+                  />
+                </div>
+              </div>
+            </>
+          ) : (
+            <div className={styles.userInfo}>
+              <h2>Bem-vindo, {user.name}!</h2>
+              <img
+                src={user.picture}
+                alt="Perfil"
+                className={styles.profilePicture}
+                crossOrigin="anonymous"
+                referrerPolicy="no-referrer"
+              />
+              <p>{user.email}</p>
+              <button onClick={logout} className={styles.logoutButton}>
+                Sair
+              </button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </>
   )
 }
