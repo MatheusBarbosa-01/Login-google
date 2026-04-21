@@ -1,9 +1,11 @@
 import type { ReactNode } from 'react';
 import { useAuth } from '../contexts/useAuth';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export function ProtectedRoute({ children }: { children: ReactNode }) {
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   if (!user) {
     return (
@@ -16,6 +18,10 @@ export function ProtectedRoute({ children }: { children: ReactNode }) {
             confirmButtonText: 'Voltar',
             confirmButtonColor: '#5d46e2',
             backdrop: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate('/');
+            }
           });
         }} 
         style={{ 

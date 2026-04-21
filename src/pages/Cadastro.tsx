@@ -1,6 +1,7 @@
 import Nav from "../components/nav"
 import { useState, useEffect } from "react"
 import { useAuth } from "../contexts/useAuth"
+import Swal from "sweetalert2"
 import "./Cadastro.css"
 
 function Cadastro() {
@@ -37,7 +38,41 @@ function Cadastro() {
     }
 
     const jsonString = JSON.stringify(dadosUsuario, null, 2)
-    setJsonGerado(jsonString)
+
+    Swal.fire({
+      title: "Dados do Cadastro",
+      html: `
+        <div style="text-align: left; background-color: #f5f5f5; padding: 1rem; border-radius: 8px; max-height: 400px; overflow-y: auto;">
+          <pre style="background-color: white; padding: 1rem; border-radius: 5px; border: 1px solid #ddd; font-size: 0.85rem; line-height: 1.5; color: #333; margin: 0;">
+${jsonString}
+          </pre>
+        </div>
+      `,
+      width: 500,
+      confirmButtonText: "Copiar JSON",
+      confirmButtonColor: "#4CAF50",
+      allowOutsideClick: false,
+      showCloseButton: true,
+      didOpen: (modal) => {
+        const copyButton = modal.querySelector(".swal2-confirm") as HTMLButtonElement
+        if (copyButton) {
+          copyButton.addEventListener("click", (e) => {
+            e.preventDefault()
+            navigator.clipboard.writeText(jsonString)
+            Swal.fire({
+              title: "✅ Sucesso!",
+              text: "JSON copiado para a área de transferência",
+              icon: "success",
+              confirmButtonColor: "#4CAF50",
+              timer: 2000,
+              timerProgressBar: true,
+            })
+          })
+        }
+      },
+    })
+
+    setJsonGerado("")
   }
 
   function limparFormulario() {
