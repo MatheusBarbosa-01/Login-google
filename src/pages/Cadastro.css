@@ -1,0 +1,197 @@
+.cadastroContainer {
+  min-height: 90vh;
+  background: linear-gradient(135deg, #4253c7 0%, #231696 100%);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.formularioCard {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+}
+
+.formularioCard h1 {
+  color: #231696;
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+}
+
+.subtexto {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.grupoFormulario {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.grupoFormulario label {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.opcional {
+  color: #999;
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
+.grupoFormulario input,
+.grupoFormulario select {
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: sans-serif;
+  transition: 0.3s;
+}
+
+.grupoFormulario input:focus,
+.grupoFormulario select:focus {
+  outline: none;
+  border-color: #5d46e2;
+  box-shadow: 0 0 8px rgba(93, 70, 226, 0.2);
+}
+
+.grupoFormulario input::placeholder {
+  color: #bbb;
+}
+
+.botoes {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.botaoPrincipal,
+.botaoSecundario {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.botaoPrincipal {
+  background-color: #5d46e2;
+  color: white;
+  flex: 1;
+  max-width: 300px;
+}
+
+.botaoPrincipal:hover {
+  background-color: #4a35b8;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(93, 70, 226, 0.3);
+}
+
+.botaoSecundario {
+  background-color: #f0f0f0;
+  color: #333;
+  flex: 1;
+  max-width: 300px;
+  border: 2px solid #e0e0e0;
+}
+
+.botaoSecundario:hover {
+  background-color: #e8e8e8;
+  border-color: #5d46e2;
+}
+
+.jsonCard {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+}
+
+.jsonCard h2 {
+  color: #231696;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.aviso {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.jsonDisplay {
+  background-color: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 1rem 0;
+  font-family: "Courier New", monospace;
+}
+
+.botaoCopiar {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.botaoCopiar:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+@media (max-width: 768px) {
+  .cadastroContainer {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .formularioCard,
+  .jsonCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .formularioCard h1 {
+    font-size: 1.5rem;
+  }
+
+  .botoes {
+    flex-direction: column;
+  }
+
+  .botaoPrincipal,
+  .botaoSecundario {
+    max-width: 100%;
+  }
+}
