@@ -54,7 +54,7 @@ function Home() {
           ) : (
             <div className={styles.userInfo}>
               <h2 className={styles.welcomeMessage}>
-                Olá {user.name}, seja bem vindo a nossa aplicação!
+                Olá {user.name}, seja bem vindo à aplicação!
               </h2>
               <p className={styles.accessMessage}>
                 Agora você tem acesso as outras páginas, explore!!!
