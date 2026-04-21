@@ -1,19 +1,14 @@
 import Nav from '../components/nav';
 import { GoogleLogin, googleLogout, type CredentialResponse } from '@react-oauth/google'
 import { jwtDecode } from 'jwt-decode'
-import { useState } from 'react'
+import { useAuth } from '../contexts/useAuth'
+import type { User } from '../contexts/useAuth'
 import styles from '../Home.module.css'
 
-type User = {
-  name: string
-  email: string
-  picture: string
-}
-
 function Home() {
-const [user, setUser] = useState<User | null>(null)
+  const { user, setUser } = useAuth();
 
- function login(credentialResponse: CredentialResponse) {
+  function login(credentialResponse: CredentialResponse) {
     if (credentialResponse.credential) {
       const decoded = jwtDecode<User>(credentialResponse.credential)
       setUser(decoded)
@@ -28,7 +23,18 @@ const [user, setUser] = useState<User | null>(null)
   return (
     <>
       <Nav />
-     <div className={styles.corpo}>
+      {user && (
+        <div className={styles.profileCorner}>
+          <img
+            src={user.picture}
+            alt="Perfil"
+            className={styles.cornerProfilePicture}
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+      )}
+      <div className={styles.corpo}>
         <div className={styles.card}>
           {!user ? (
             <>
@@ -47,15 +53,13 @@ const [user, setUser] = useState<User | null>(null)
             </>
           ) : (
             <div className={styles.userInfo}>
-              <h2>Bem-vindo, {user.name}!</h2>
-              <img
-                src={user.picture}
-                alt="Perfil"
-                className={styles.profilePicture}
-                crossOrigin="anonymous"
-                referrerPolicy="no-referrer"
-              />
-              <p>{user.email}</p>
+              <h2 className={styles.welcomeMessage}>
+                Olá {user.name}, seja bem vindo a nossa aplicação!
+              </h2>
+              <p className={styles.accessMessage}>
+                Agora você tem acesso as outras páginas, explore!!!
+              </p>
+              <p className={styles.emailDisplay}>{user.email}</p>
               <button onClick={logout} className={styles.logoutButton}>
                 Sair
               </button>
